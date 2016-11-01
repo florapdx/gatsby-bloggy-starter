@@ -16,13 +16,13 @@ const PostHeader = props => {
 
   return (
     <div className="post-header">
-      <h3 className="post-title">
+      <h2 className="post-title">
         {
           isTitleALink ? (
             <Link to={prefixLink(`posts/${slug}/`)}>{title}</Link>
-          ) : {title}
+          ) : <span>{title}</span>
         }
-      </h3>
+      </h2>
       <div className="post-meta">
         {
           author ? (
@@ -31,8 +31,18 @@ const PostHeader = props => {
         }
         <span className="post-date">{date}</span>
         {
-          tags ? (
-            <span className="post-abstract">{tags}</span>
+          tags && tags.length ? (
+            <p className="post-tags">
+              {
+                tags.map((tag, idx) => {
+                  return (
+                    <span key={tag}>
+                      <a>{`tag ${idx < tags.length ? ',' : ''}`}</a>
+                    </span>
+                  );
+                })
+              }
+            </p>
           ) : null
         }
       </div>
