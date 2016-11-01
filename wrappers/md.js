@@ -1,24 +1,32 @@
-import React from 'react'
-import 'css/markdown-styles.css'
-import Helmet from "react-helmet"
-import { config } from 'config'
+import React, { PropTypes, Component } from 'react';
+import Helmet from 'react-helmet';
+import { config } from 'config';
+import Post from '../components/blog/post';
 
-module.exports = React.createClass({
-  propTypes () {
-    return {
-      router: React.PropTypes.object,
-    }
-  },
+import 'stylesheets/markdown-styles.css';
+
+class MarkdownWrapper extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render () {
-    const post = this.props.route.page.data
+    const { route: { page } } = this.props;
+    const post = page.data;
+
     return (
-      <div className="markdown">
+      <div className="post-page">
         <Helmet
           title={`${config.siteTitle} | ${post.title}`}
         />
-        <h1>{post.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.body }} />
+        <Post post={post} slug={page.file.name} />
       </div>
-    )
-  },
-})
+    );
+  }
+}
+
+MarkdownWrapper.propTypes = {
+  body: PropTypes.string
+};
+
+export default MarkdownWrapper;

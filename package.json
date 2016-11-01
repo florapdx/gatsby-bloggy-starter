@@ -9,6 +9,7 @@
     "highlight.js": "^9.6.0",
     "history": "^2.0.2",
     "js-yaml": "^3.6.0",
+    "lodash.values": "^4.3.0",
     "markdown-it": "^7.0.1",
     "markdown-it-abbr": "^1.0.3",
     "markdown-it-attrs": "^0.6.3",

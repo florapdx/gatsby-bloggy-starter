@@ -1,17 +1,24 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { config } from 'config'
+import React, { PropTypes, Component } from 'react';
+import Helmet from 'react-helmet';
+import { config } from 'config';
+import Post from '../components/blog/post';
 
-module.exports = React.createClass({
-  propTypes () {
-    return {
-      router: React.PropTypes.object,
-    }
-  },
+class HTMLWrapper extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render () {
-    const page = this.props.route.page.data
+    const page = this.props.route.page.data;
+
     return (
       <div dangerouslySetInnerHTML={{ __html: page.body }} />
-    )
-  },
-})
+    );
+  }
+}
+
+HTMLWrapper.propTypes = {
+  router: PropTypes.object
+};
+
+export default HTMLWrapper;

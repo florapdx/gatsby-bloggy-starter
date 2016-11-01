@@ -7,23 +7,31 @@ import CodePlugin from 'typography-plugin-code'
 const options = {
   googleFonts: [
     {
-      name: 'Montserrat',
+      name: 'Open Sans',
       styles: [
+        '300',
+        '300i',
+        '400',
+        '400i',
+        '600',
+        '600i',
         '700',
+        '700i'
       ],
     },
     {
-      name: 'Arvo',
+      name: 'Taviraj',
       styles: [
-        '400',
-        '400i',
-        '700',
+        '300',
+        '300i',
+        '600',
+        '600i'
       ],
     },
   ],
-  headerFontFamily: ['Montserrat', 'sans-serif'],
-  bodyFontFamily: ['Arvo', 'sans-serif'],
-  baseFontSize: '18px',
+  headerFontFamily: ['Open Sans', 'sans-serif'],//['Merriweather', 'sans-serif'],
+  bodyFontFamily: ['Taviraj', 'serif'],
+  baseFontSize: '20px',
   baseLineHeight: 1.65,
   scale: 2.25,
   plugins: [
