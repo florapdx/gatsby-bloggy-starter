@@ -1,14 +1,18 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "gatsby-bloggy-starter",
+  "description": "Bloggy - A Gatsby blog starter for individuals and teams",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Flora Worley <flora@lets.computer>",
+  "repository": "https://github.com/florapdx/gatsby-bloggy-starter.git",
+  "bugs": "https://github.com/florapdx/gatsby-bloggy-starter/issues",
   "dependencies": {
+    "bourbon": "^4.2.7",
+    "bourbon-neat": "^1.8.0",
+    "font-awesome": "^4.7.0",
     "front-matter": "^2.0.7",
     "gatsby": "^0.12.6",
     "highlight.js": "^9.6.0",
     "history": "^2.0.2",
-    "js-yaml": "^3.6.0",
     "lodash.values": "^4.3.0",
     "markdown-it": "^7.0.1",
     "markdown-it-abbr": "^1.0.3",
@@ -17,19 +21,16 @@
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-sub": "^1.0.0",
     "object-assign": "^4.1.0",
-    "react-headroom": "^2.1.2",
-    "react-helmet": "^3.1.0",
-    "react-responsive-grid": "^0.3.3",
-    "react-typography": "^0.14.0",
-    "toml-js": "0.0.8",
-    "typography": "^0.14.0",
-    "typography-plugin-code": "^0.14.0"
+    "react-helmet": "^3.1.0"
   },
   "devDependencies": {
     "gh-pages": "^0.11.0"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "gatsby blog",
+    "gatsby starter",
+    "blog"
   ],
   "license": "MIT",
   "main": "n/a",

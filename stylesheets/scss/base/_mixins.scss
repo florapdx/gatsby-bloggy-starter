@@ -1,0 +1,74 @@
+/* POSITIONING */
+
+// Centers the element within a relatively positioned parent element
+@mixin center-content($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+}
+
+/* TEXT */
+
+@mixin truncate {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* BUTTONS */
+
+// Don't use <a> tags for buttons -- use <button> for buttons!!
+@mixin button-reset {
+    background: none repeat scroll 0 0 transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    font-weight: normal;
+    overflow: visible;
+    text-transform: none;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+    @include font-smoothing;
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+@mixin button-standard {
+  display: block;
+  width: 200px;
+  background-color: $blackish;
+  color: $white;
+  font-weight: bold;
+  line-height: 3em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* FORMS, INPUTS */
+
+@mixin input-standard {
+  display: block;
+  font-size: inherit;
+  line-height: 2em;
+  text-indent: 8px;
+  border: 1px solid lighten($gray, 30);
+  border-radius: 0;
+  margin: 1.2em 0;
+  -webkit-appearance: none;
+
+  &:focus {
+    border-color: inherit;
+  }
+}
