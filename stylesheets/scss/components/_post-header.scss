@@ -1,1 +1,6 @@
-.post-header {}
+.post-header {
+    .post-title { margin-bottom: 0.6em; }
+    .post-tag a {
+        text-decoration: none;
+    }
+}

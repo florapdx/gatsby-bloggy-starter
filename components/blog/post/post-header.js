@@ -26,23 +26,23 @@ const PostHeader = props => {
       <div className="post-meta">
         {
           author ? (
-            <span className="post-author">{author}</span>
+            <p className="post-author">{author}</p>
           ) : null
         }
         <span className="post-date">{date}</span>
         {
           tags && tags.length ? (
-            <p className="post-tags">
+            <div className="post-tags">
               {
                 tags.map((tag, idx) => {
                   return (
-                    <span key={tag}>
-                      <a>{`tag ${idx < tags.length ? ',' : ''}`}</a>
+                    <span key={tag} className="post-tag">
+                      <a>{`tag${idx < tags.length - 1 ? ', ' : ''}`}</a>
                     </span>
                   );
                 })
               }
-            </p>
+            </div>
           ) : null
         }
       </div>

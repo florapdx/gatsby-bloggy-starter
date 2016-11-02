@@ -1,7 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import Helmet from 'react-helmet';
-import { config } from 'config';
-import Post from '../components/blog/post';
 
 class HTMLWrapper extends Component {
   constructor(props) {

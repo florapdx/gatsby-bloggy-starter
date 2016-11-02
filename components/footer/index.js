@@ -4,12 +4,13 @@ import { prefixLink } from 'gatsby-helpers';
 
 const Footer = props => {
   const { links, socialLinks } = props;
+  const date = new Date();
 
   return (
     <div className="bloggy__footer">
       <div className="wrapper">
         <div className="col-left">
-          <p className="copyright icon-copyright">Your Name/Company name. All rights reserved.</p>
+          <p className="copyright icon-copyright">{`${date.getFullYear()} Your Name/Company name. All rights reserved.`}</p>
         </div>
         <div className="col-center">
           {
