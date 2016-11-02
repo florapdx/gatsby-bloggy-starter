@@ -2,13 +2,13 @@
 
 __This is WIP - currently under construction__
 
-This is a stripped-down version of the gatsby-default-starter project for
-building a personal or team blog.
+A Medium-inspired blog starter built from the gatsby-default-starter project. Best used for a personal or team blog, the Bloggy starter project can be used as is or modified for your use by adding new components, scripts, and stylesheets. Recipes welcome!
 
 Out of the box, this starter:
 * has a clean style inspired by Medium
 * supports posts written in Markdown, html, and JS/X
 * uses Sass for css and FontAwesome for icons
+* Bourbon and Bourbon neat for grid and advanced styling needs
 * supports embedding Gists in posts (JS/X posts only)
 
 
