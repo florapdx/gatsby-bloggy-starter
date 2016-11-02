@@ -27,5 +27,11 @@ export default {
     title: 'My Second Post',
     date: 'January 2, 2016',
     abstract: 'In you probably haven\'t heard of them dreamcatcher delectus asymmetrical, try-hard esse. Thundercats vegan veniam, put a bird on it ullamco cold-pressed dolore pitchfork est vinyl af.'
+  },
+  'my-third-post': {
+    slug: 'my-third-post',
+    title: 'My Third Post',
+    date: 'January 3, 2016',
+    abstract: 'n you probably haven\'t heard of them dreamcatcher delectus asymmetrical, try-hard esse. Thundercats vegan veniam, put a bird on it ullamco cold-pressed dolore pitchfork est vinyl af.'
   }
 };

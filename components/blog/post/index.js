@@ -11,7 +11,7 @@ const Post = props => {
   return (
     <div className="post">
       <PostHeader postMeta={postMeta} />
-      <div dangerouslySetInnerHTML={{ __html: post.body }} />
+        <div dangerouslySetInnerHTML={{ __html: post.body }} />
       <PostFooter />
     </div>
   );
