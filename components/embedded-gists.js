@@ -6,7 +6,10 @@ import React, { PropTypes, Component } from 'react';
  * http://stackoverflow.com/questions/30429361/how-to-embed-a-gist-using-reactjs
  */
 
-const EmbeddedGist extends Component {
+let stylesheetAdded = false;
+let gistCallbackId = 0;
+
+class EmbeddedGist extends Component {
   constructor(props) {
     super(props);
 
@@ -14,23 +17,20 @@ const EmbeddedGist extends Component {
       loading: true,
       src: ''
     };
-
-    this.gistCallbackId = 0;
   }
 
   // Each time we request a Gist, we'll need to generate a new
   // global function name to serve as the JSONP callback.
-  static gistCallbackId: 0;
   static nextGistCallback() {
-    return `embed_gist_callback_${EmbeddedGist.gistCallbackId + 1}`;
+    gistCallbackId = gistCallbackId + 1;
+    return `embed_gist_callback_${gistCallbackId}`;
   }
 
   // The Gist JSON data includes a stylesheet to add to the page
   // to make it look correct. `addStylesheet` ensures we only add
   // the stylesheet one time.
-  static stylesheetAdded: false;
   static addStylesheet(href) {
-    if (EmbeddedGist.stylesheetAdded) {
+    if (stylesheetAdded) {
       return;
     }
     const link = document.createElement('link');
@@ -39,7 +39,7 @@ const EmbeddedGist extends Component {
     link.href = href;
 
     document.head.appendChild(link);
-    EmbeddedGist.stylesheetAdded = true;
+    stylesheetAdded = true;
   }
 
   componentDidMount() {
@@ -47,13 +47,11 @@ const EmbeddedGist extends Component {
     // with the data that comes back from the Gist site
     const gistCallback = EmbeddedGist.nextGistCallback();
     window[gistCallback] = gist => {
-      if (this.isMounted()) {
-        this.setState({
-          loading: false,
-          src: gist.div
-        });
-        EmbeddedGist.addStylesheet(gist.stylesheet);
-      }
+      this.setState({
+        loading: false,
+        src: gist.div
+      });
+      EmbeddedGist.addStylesheet(gist.stylesheet);
     };
 
     const { gist, file } = this.props;
@@ -68,7 +66,7 @@ const EmbeddedGist extends Component {
     script.type = 'text/javascript';
     script.src = url;
     document.head.appendChild(script);
-  },
+  }
 
   render() {
     const { loading, src } = this.state;
