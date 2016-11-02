@@ -1,0 +1,21 @@
+.bloggy {
+  @include outer-container;
+  max-width: 100%;
+}
+
+.bloggy__header,
+.bloggy__main,
+.bloggy__footer {
+  @include span-columns(12);
+}
+
+.bloggy__header .wrapper,
+.bloggy__footer .wrapper {
+  @include span-columns(11);
+  @include shift(0.5);
+}
+
+.bloggy__main .wrapper {
+  @include span-columns(8);
+  @include shift(2);
+}

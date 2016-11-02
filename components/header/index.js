@@ -12,13 +12,15 @@ class Header extends Component {
     const { links } = this.props;
 
     return (
-      <div className="header">
-        <div className="logo">
-          <Link to={prefixLink('/')}>
-            <img src={prefixLink('/images/logo.png')} alt="Blog logo" />
-          </Link>
+      <div className="bloggy__header">
+        <div className="wrapper">
+          <div className="logo">
+            <Link to={prefixLink('/')}>
+              <img src={prefixLink('/images/logo.png')} alt="Blog logo" />
+            </Link>
+          </div>
+          <Nav links={links} />
         </div>
-        <Nav links={links} />
       </div>
     );
   }

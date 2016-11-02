@@ -5,6 +5,8 @@ import { config } from 'config';
 import Helmet from 'react-helmet';
 import PostList from '../components/blog/post-list';
 
+import 'stylesheets/scss/main.scss';
+
 export default class Index extends Component {
   render () {
     return (

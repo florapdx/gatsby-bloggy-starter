@@ -1,7 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { prefixLink } from 'gatsby-helpers';
-import { TypographyStyle, GoogleFont } from 'react-typography';
-import typography from './utils/typography';
 import Helmet from 'react-helmet';
 
 const BUILD_TIME = new Date().getTime()
@@ -30,8 +28,6 @@ class Site extends Component {
           />
           {head.title.toComponent()}
           {head.meta.toComponent()}
-          <TypographyStyle typography={typography} />
-          <GoogleFont typography={typography} />
           {css}
         </head>
         <body>

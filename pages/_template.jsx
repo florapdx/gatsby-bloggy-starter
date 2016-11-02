@@ -14,7 +14,9 @@ class Base extends Component {
       <div className="bloggy">
         <Header />
         <div className="bloggy__main">
-          {this.props.children}
+          <div className="wrapper">
+            {this.props.children}
+          </div>
         </div>
         <Footer />
       </div>

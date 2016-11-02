@@ -13,7 +13,10 @@ const PostSummary = props => {
         <p>
           {postMeta.abstract}
           <span>
-            <Link to={prefixLink(`posts/${postMeta.slug}/`)}>read on &#8594;</Link>
+            <Link
+              to={prefixLink(`posts/${postMeta.slug}/`)}
+              className="read-on"
+            > read on &#8594;</Link>
           </span>
         </p>
       </div>

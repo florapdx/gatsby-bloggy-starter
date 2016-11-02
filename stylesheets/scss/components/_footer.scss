@@ -1,0 +1,17 @@
+.bloggy__footer {
+  background-color: $gray-light;
+  padding-top: 20px;
+  padding-bottom: 30px;
+
+  .col-left {
+    @include span-columns(4 of 10);
+  }
+
+  .copyright { font-size: $font-size-small; }
+
+  .col-center,
+  .col-right {
+    @include span-columns(3 of 10);
+    @include omega();
+  }
+}

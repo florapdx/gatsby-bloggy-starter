@@ -18,14 +18,27 @@ h3,
 h4 {
   @include font-header-base();
 }
-h2 { size: 0.9rem; }
-h3 { size: 0.7rem; }
-h4 { size: 0.5rem; }
+h2 { font-size: $font-size-md-lg; }
+h3 { font-size: 1.4em; }
+h4 { font-size: $font-size-medium; }
 
 ul,
 li {
   list-style-type: none;
   padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover { color: $green; }
+}
+
+p a,
+span a {
+  color: $green;
+  text-decoration: underline;
 }
 
 button {

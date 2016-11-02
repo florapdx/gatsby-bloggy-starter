@@ -1,13 +1,20 @@
 // Lib
-@import "node_modules/bourbon/app/assets/stylesheets/bourbon";
-@import 'node_modules/bourbon-neat/app/assets/stylesheets/neat';
-@import 'node_modules/font-awesome/scss/font-awesome';
+@import "../../node_modules/bourbon/app/assets/stylesheets/bourbon";
+@import "../../node_modules/bourbon-neat/app/assets/stylesheets/neat";
 
 // Base
-
-
-// Pages
+@import "base/colors";
+@import "base/fonts";
+@import "base/icons";
+@import "base/mixins";
+@import "base/html";
+@import "base/layout";
 
 // Components
-
-// Sharedcd
+@import "components/index";
+@import "components/header";
+@import "components/footer";
+@import "components/post";
+@import "components/post-header";
+@import "components/post-footer";
+@import "components/post-summary";
