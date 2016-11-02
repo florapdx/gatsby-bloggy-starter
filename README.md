@@ -36,7 +36,7 @@ This is my very first post. Please read on!
 
 Before I found Gatsby, I was lost.
 
-OR
+- OR -
 
 ### posts/my-first-post.jsx
 import React from 'react';
@@ -65,9 +65,11 @@ Since JS/X posts aren't wrapped in a React wrapper as part of the build process 
 Say, for example, you started with `my-first-post.md` but then decided that you wanted to add a Gist to your page using Github's Gist embed code. In order to do that, you'd just wrap your post body in a React component so that it looks like `my-first-post.jsx`, and add the `EmbedGist` component, passing your gist identifier as a prop:
 
 ```
+### posts/my-first-post.jsx
+...
 <p>....</p>
-<EmbedGist gist={'florapdx/09326933831039'}>
-<p></p>
+<EmbedGist gist={'florapdx/09326933831039'} />
+<p>...</p>
 
 ```
 
