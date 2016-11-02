@@ -1,48 +1,52 @@
-import React from 'react';
+import React, { PropTypes, Component } from 'react';
 
-var EmbeddedGist = React.createClass({
-  propTypes: {
-    gist: React.PropTypes.string.isRequired, // e.g. "username/id"
-    file: React.PropTypes.string // to embed a single specific file from the gist
-  },
+/*
+ * Component updated version of BinaryMuse's EmbeddedGist component from
+ * this SO thread:
+ * http://stackoverflow.com/questions/30429361/how-to-embed-a-gist-using-reactjs
+ */
 
-  statics: {
-    // Each time we request a Gist, we'll need to generate a new
-    // global function name to serve as the JSONP callback.
-    gistCallbackId: 0,
-    nextGistCallback: function() {
-      return "embed_gist_callback_" + EmbeddedGist.gistCallbackId++;
-    },
+const EmbeddedGist extends Component {
+  constructor(props) {
+    super(props);
 
-    // The Gist JSON data includes a stylesheet to add to the page
-    // to make it look correct. `addStylesheet` ensures we only add
-    // the stylesheet one time.
-    stylesheetAdded: false,
-    addStylesheet: function(href) {
-      if (!EmbeddedGist.stylesheetAdded) {
-        EmbeddedGist.stylesheetAdded = true;
-        var link = document.createElement('link');
-        link.type = "text/css";
-        link.rel = "stylesheet";
-        link.href = href;
-
-        document.head.appendChild(link);
-      }
-    }
-  },
-
-  getInitialState: function() {
-    return {
+    this.state = {
       loading: true,
-      src: ""
+      src: ''
     };
-  },
 
-  componentDidMount: function() {
+    this.gistCallbackId = 0;
+  }
+
+  // Each time we request a Gist, we'll need to generate a new
+  // global function name to serve as the JSONP callback.
+  static gistCallbackId: 0;
+  static nextGistCallback() {
+    return `embed_gist_callback_${EmbeddedGist.gistCallbackId + 1}`;
+  }
+
+  // The Gist JSON data includes a stylesheet to add to the page
+  // to make it look correct. `addStylesheet` ensures we only add
+  // the stylesheet one time.
+  static stylesheetAdded: false;
+  static addStylesheet(href) {
+    if (EmbeddedGist.stylesheetAdded) {
+      return;
+    }
+    const link = document.createElement('link');
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.href = href;
+
+    document.head.appendChild(link);
+    EmbeddedGist.stylesheetAdded = true;
+  }
+
+  componentDidMount() {
     // Create a JSONP callback that will set our state
     // with the data that comes back from the Gist site
-    var gistCallback = EmbeddedGist.nextGistCallback();
-    window[gistCallback] = function(gist) {
+    const gistCallback = EmbeddedGist.nextGistCallback();
+    window[gistCallback] = gist => {
       if (this.isMounted()) {
         this.setState({
           loading: false,
@@ -50,27 +54,36 @@ var EmbeddedGist = React.createClass({
         });
         EmbeddedGist.addStylesheet(gist.stylesheet);
       }
-    }.bind(this);
+    };
 
-    var url = "https://gist.github.com/" + this.props.gist + ".json?callback=" + gistCallback;
-    if (this.props.file) {
-      url += "&file=" + this.props.file;
+    const { gist, file } = this.props;
+
+    let url = `https:\/\/gist.github.com/${gist}.json?callback=${gistCallback}`;
+    if (file) {
+      url += `&file=${file}`;
     }
 
     // Add the JSONP script tag to the document.
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = url;
     document.head.appendChild(script);
   },
 
   render() {
-    if (this.state.loading) {
-      return <div>loading...</div>;
-    } else {
-      return <div dangerouslySetInnerHTML={{__html: this.state.src}} />;
-    }
+    const { loading, src } = this.state;
+
+    return loading ? (
+      <div>loading...</div>
+    ) : (
+      <div dangerouslySetInnerHTML={{__html: src}} />
+    );
   }
-});
+}
+
+EmbeddedGist.propTypes = {
+  gist: PropTypes.string.isRequired, // e.g. "username/id"
+  file: PropTypes.string // to embed a single specific file from the gist
+}
 
 export default EmbeddedGist;
