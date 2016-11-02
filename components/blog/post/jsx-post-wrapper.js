@@ -27,7 +27,7 @@ class JSPostWrapper extends Component {
     return (
       <div className="post-page">
         <Helmet
-          title={`${config.siteTitle} | ${post.title}`}
+          title={`${config.siteTitle} | Blog`}
         />
         <div className="post">
           <PostHeader postMeta={postMeta} />
