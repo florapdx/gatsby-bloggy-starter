@@ -12,13 +12,16 @@ Out of the box, this starter:
 * supports embedding Gists in posts (JS/X posts only)
 
 
-### Posts are just post bodies - no more front-matter
+### Posts are just post bodies - use a manifest for post title and meta
 
-Instead of using front-matter in posts (which doesn't work across post-formats),
-the starter package renders post headers, footers, and post summaries as React
-elements based on the post meta object for each post in `post-manifest.js`. The
-key for each post will be the file name, and the file name doubles as the url
-slug for that post. Ex:
+Instead of using front-matter in Markdown posts (which presents consistency
+and ease-of-development issues across post-formats), this starter package
+renders all post formats into generic `Post` components,
+which in turn render a `PostHeader` and a `PostFooter`.
+
+These, as well as `PostSummaries`, are built from the post meta object you'll add for each post in `post-manifest.js`. The key for each post will be the file name, and the file name doubles as the url 'slug' for that post.
+
+Ex:
 
 ```
 ### post-manifest.js
@@ -75,7 +78,6 @@ Say, for example, you started with `my-first-post.md` but then decided that you 
 
 
 TODOs:
-* Add comment support
 * Add contact form
 * Add newsletter signup - TinyLetter distro?
 * Add auto-post to Medium?

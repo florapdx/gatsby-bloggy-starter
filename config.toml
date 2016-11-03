@@ -1,2 +1,13 @@
+# base config from gatsby-starter-default
 siteTitle="My Awesome Site"
 linkPrefix = "/"
+
+# path configs
+SITE_ROOT_URL = 'http://0.0.0.0:8000/' # replace with your site root
+
+# Disqus
+## Configure your Disqus settings in your account at
+## https://{your-shortname}.disqus.com/admin/settings
+ENABLE_DISQUS = false # set to true to enable Disqus
+DISQUS_SHORTNAME = '' # add Disqus shortname
+DISQUS_CATEGORY = '' # if you chose a Disqus category, you may add that here
